@@ -27,33 +27,33 @@ function Navbar({section, sectionCb}) {
       <div className="sidebar">
         <List disablePadding dense>
 
-            <ListItem  button style={{padding: "1rem", background: section == "headlines"?"orange" : ""}} onClick={() => sectionCb("headlines") } >
-                <ListItemIcon color="primary">
+            <ListItem  button style={{padding: "1rem", background: section == "headlines"?"linear-gradient(90deg, rgba(255,142,65,1) 0%, rgba(255,116,23,1) 53%)" : ""}} onClick={() => sectionCb("headlines") } >
+                <ListItemIcon>
                     <Tooltip title="headlines"  placement="right-start" arrow>
-                      <WhatshotIcon   color="primary" fontSize="large"/>
+                      <WhatshotIcon   style={{color: section == "headlines" ? "#fff" : "rgb(96, 102, 113)"}}  fontSize="large"/>
                     </Tooltip>
                 </ListItemIcon>
             </ListItem>
-             <ListItem  button   style={{padding: "1rem", background: section == "fitness"?"orange" : ""}}  onClick={() => sectionCb("fitness") } >
-                <ListItemIcon color="primary">
+             <ListItem  button   style={{padding: "1rem", background: section == "fitness"?"#ff7417" : ""}}  onClick={() => sectionCb("fitness") } >
+                <ListItemIcon >
                     <Tooltip title="fitness"  placement="right-start" arrow>
-                      <FitnessCenterIcon   color="primary" fontSize="large"/>
+                      <FitnessCenterIcon  style={{color:section == "fitness" ? "#fff" : "rgb(96, 102, 113)"}}   fontSize="large"/>
                     </Tooltip>
                 </ListItemIcon>
             </ListItem>
-              <ListItem  button  style={{padding: "1rem", background: section == "business"?"orange" : ""}}  onClick={() => sectionCb("business") } >
-                <ListItemIcon color="primary">
+              <ListItem  button  style={{padding: "1rem", background: section == "business"?"#ff7417" : ""}}  onClick={() => sectionCb("business") } >
+                <ListItemIcon >
                   <Tooltip title="business"  placement="right-start" arrow>
-                    <ApartmentIcon   color="primary" fontSize="large"/>
+                    <ApartmentIcon   style={{color: section == "business" ? "#fff" : "rgb(96, 102, 113)"}}  fontSize="large"/>
                   </Tooltip>
                 </ListItemIcon>
             </ListItem>
-             <ListItem  button  style={{padding: "1rem", background: section == "movies"?"orange" : ""}} onClick={() => sectionCb("movies") } >
-                <ListItemIcon color="primary">
+             <ListItem  button  style={{padding: "1rem", background: section == "movies"?"#ff7417" : ""}} onClick={() => sectionCb("movies") } >
+                <ListItemIcon >
                   <Tooltip title="movies"  placement="right-start" arrow>
-                    <LocalMoviesIcon   color="primary" fontSize="large"/>
+                    <LocalMoviesIcon   style={{color: section == "movies" ? "#fff" : "rgb(96, 102, 113)"}}  fontSize="large"/>
                   </Tooltip>
-                </ListItemIcon>
+                </ListItemIcon> 
             </ListItem>
         </List>
       </div>

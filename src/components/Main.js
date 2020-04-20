@@ -1,5 +1,9 @@
 import React from "react";
 import Card from "./Card";
+import ScrollButton from "./ScrollButton"
+import SearchBar from "./SearchBar"
+
+
 function Main({articleArray}) {
   return (
     <div 
@@ -13,6 +17,8 @@ function Main({articleArray}) {
 
         }}
       >
+           <ScrollButton/>
+<SearchBar/>
         {articleArray
           .map((article, key) => {
             const { url, author,urlToImage, description, publishedAt, title ,source} = article;

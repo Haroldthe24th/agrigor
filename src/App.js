@@ -3,7 +3,8 @@ import Navbar from "./components/Navbar";
 import Card from "./components/Card";
 import Main from "./components/Main";
 import "./App.css";
-
+import CircularProgress from '@material-ui/core/CircularProgress';
+import ScrollButton from "./components/ScrollButton"
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -60,9 +61,24 @@ class App extends React.Component {
 
 }}>
       <Navbar section={section} sectionCb={this.sectionCb}/>
-      {!loading && 
-     <Main articleArray={articleArray}/>
+      {!loading ?
+     <Main articleArray={articleArray}>
+     </Main>
+     :   <div   style={{
+          flex: 1,
+          display:"flex",
+          alignItems:"center",
+          justifyContent:"center",
+          height: "100vh",
+          background:  "#2a2e35",//"#F0F0F0",
+
+        }}>
+      <CircularProgress style={{color:"#fff"}} size={60} />
+
+    </div>
    }
+
+  
     </div>
   );
 }
