@@ -18,7 +18,7 @@ class App extends React.Component {
   }
   async componentDidMount() {
     const url =
-      "http://newsapi.org/v2/top-headlines?" +
+      "https://newsapi.org/v2/top-headlines?" +
       "country=us&" +
       "pageSize=100" +
       "&apiKey=9635cc6b391a4665a96989771f2334cd";
@@ -34,7 +34,7 @@ class App extends React.Component {
   async sectionCb(section) {
     this.setState({ section, loading: true });
     const url =
-      "http://newsapi.org/v2/everything?" +
+      "https://newsapi.org/v2/everything?" +
       "q=" +
       section +
       "&pageSize=100" +
@@ -54,7 +54,7 @@ class App extends React.Component {
     this.setState({ loading: true });
 
     const url =
-      "http://newsapi.org/v2/everything?" +
+      "https://newsapi.org/v2/everything?" +
       "q=" +
       query +
       "&pageSize=100" +
