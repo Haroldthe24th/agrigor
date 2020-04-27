@@ -7,17 +7,14 @@ function Card({url, urlToImage, title, bold, description, source}) {
     const [visible, changeVis] = useState(false)
       useEffect(() =>{
           changeUri(urlToImage)
-          console.log("here ")
       },[])
   const onImgFail = () =>{
       changeUri(placeholder)
   }
     const onVisChange = () => {
       changeVis(true)
-                console.log("alos here ")
 
     } 
-   
   return (
  
     <div         className={visible? "card-animate card":"card card-animate " }
@@ -28,7 +25,7 @@ function Card({url, urlToImage, title, bold, description, source}) {
  
       <img
         onError={onImgFail}
-        src={visible?urlToImage:placeholder}
+        src={urlToImage}
         className={"card-image" }
               ></img>
       <div className="card-container">

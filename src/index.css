@@ -147,8 +147,8 @@ cursor: pointer;}
 
     color: transparent;
 }
-.search-input {
-    
+.search-bar:hover {
+    cursor: pointer;
 }
 .search-bar:focus {
    width: 8rem;
