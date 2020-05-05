@@ -1,33 +1,69 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,createRef } from "react";
 import placeholder from "../placeholder.jpg";
 import { Waypoint } from "react-waypoint";
 
 function Card({ url, urlToImage, title, bold, description, source }) {
   const [uri, changeUri] = useState("");
-  const [visible, changeVis] = useState(placeholder);
+  const [visible, changeVis] = useState(false);
+  const [ loaded, changeLoaded] = useState(false)
+    const imgRef = React.createRef();
+
   useEffect(() => {
-    changeUri(urlToImage);
+    changeUri(placeholder);
   }, []);
   const onImgFail = () => {
     changeUri(placeholder);
   };
+   /*const  loadImage = async (imageUrl,imgRef) => {
+    let img
+    const imageLoadPromise = new Promise(resolve => {
+        img = new Image();
+        img.onload = resolve;
+        img.src = imageUrl;
+    });
+
+    await imageLoadPromise;
+    console.log("image loaded");
+    return img;
+}*/
   const onVisChange = () => {
     changeVis(true);
+        changeUri(urlToImage);
+
+   /* loadImage(urlToImage,).then(image => {
+      console.log("images",images)
+
+})*/
   };
+
+ 
   return (
+    <Waypoint
+  onEnter={onVisChange}
+  topOffset={"50%"}
+ // onLeave={this._handleWaypointLeave}
+>
     <div
-      className={"card card-animate "}
+      className={visible ?"card card-animate" : "card"}
       onClick={() => {
         window.open(url, "_blank");
       }}
     >
-      <img onError={onImgFail} src={uri} className={"card-image"}></img>
+      <img 
+      onLoad={()=> 
+        visible &&
+        changeLoaded(true)}
+      ref={imgRef}
+       onError={onImgFail} 
+       src={uri} 
+       style={{backgroundImage:loaded ?"auto":"url("+ placeholder+")"}} 
+       className={"card-image"}></img>
       <div className="card-container">
         <div
           className="card-source"
           onClick={() => {
             window.open(url, "_blank");
-          }}
+          }} 
         >
           {source.name}
         </div>
@@ -35,6 +71,7 @@ function Card({ url, urlToImage, title, bold, description, source }) {
         {/*<div className="card-content">{description}</div>*/}
       </div>
     </div>
+    </Waypoint>
   );
 }
 

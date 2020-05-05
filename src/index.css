@@ -44,6 +44,7 @@ code {
   background: #212329;
   transition-duration: 0.2s;
   visibility: hidden;
+  opacity: 0;
 }
 .card-title {
   font-size: 18.5px;
@@ -91,7 +92,7 @@ code {
   transform: translateY(300px);
   animation: fallPerspective 0.5s ease-in-out forwards;
   visibility: visible;
-  opacity: 0;
+  opacity: 1;
 }
 
 @keyframes fallPerspective {
