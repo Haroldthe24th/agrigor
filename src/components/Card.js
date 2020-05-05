@@ -56,7 +56,6 @@ function Card({ url, urlToImage, title, bold, description, source }) {
       ref={imgRef}
        onError={onImgFail} 
        src={uri} 
-       style={{backgroundImage:loaded ?"auto":"url("+ placeholder+")"}} 
        className={"card-image"}></img>
       <div className="card-container">
         <div
