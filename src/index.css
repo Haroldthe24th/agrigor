@@ -173,3 +173,50 @@ input[type="search"]::-webkit-search-cancel-button {
    font-family: "Inconsolata", monospace;
 
 }
+
+.landing-section {
+  width: 100vw;
+  height: 100vh;
+  background: #2a2e35;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-card-section {
+  width: 50rem;
+ /* height: 25rem;*/
+  background: #212329;
+}
+.landing-card-holder {
+  outline: 1px solid black;
+ /* height: 80%;
+  width: 95%;*/
+  margin:auto;
+  margin-top: 1rem;
+  flex-direction: row;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: space-between;
+  justify-content: center;
+}
+.landing-card {
+  width: 8rem;
+  height: 5rem;
+  margin: .5rem;
+  background: white;
+  color:black;
+    display:flex;
+  align-items: center;
+  justify-content: center;
+ /*  transition: transform .2s;*/ 
+backface-visibility: hidden;
+border-radius: .1rem;
+border: 1px solid grey;
+}
+.landing-card:hover {
+  /*transform: scale(1.05);
+ backface-visibility: hidden;*/
+  cursor: pointer;
+  background: #e68443;
+}

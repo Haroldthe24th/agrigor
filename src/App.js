@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import Card from "./components/Card";
 import Main from "./components/Main";
+import Landing from "./components/Landing";
 import "./App.css";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ScrollButton from "./components/ScrollButton";
@@ -75,7 +76,7 @@ class App extends React.Component {
 
     return (
       <div style={{ display: "flex", fontFamily: "Lato, sans-serif" }}>
-        <Navbar section={section} sectionCb={this.sectionCb} />
+       {/* <Navbar section={section} sectionCb={this.sectionCb} />
         {!loading ? (
           <Main
             articleArray={articleArray}
@@ -94,7 +95,8 @@ class App extends React.Component {
           >
             <CircularProgress style={{ color: "#fff" }} size={60} />
           </div>
-        )}
+        )}*/}
+        <Landing/>
       </div>
     );
   }
