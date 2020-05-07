@@ -28,14 +28,12 @@ function Landing() {
 		return;
 	}
   return (
-<div className="landing-section">
-<p> here</p> <p>heres</p>
+
 <div className="landing-card-section">
 <div  className="landing-card-holder">
 {cardArray.map((arr, index) => {
 return <LandingCard cardCallback={cardCallback} id={arr.id} selected={arr.selected} title={arr.title}/>
 })}
-</div>
 </div>
 </div>
   );

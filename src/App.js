@@ -6,6 +6,7 @@ import Landing from "./components/Landing";
 import "./App.css";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import ScrollButton from "./components/ScrollButton";
+import Modal from "./components/Modal"
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -13,9 +14,11 @@ class App extends React.Component {
       articleArray: [],
       section: "headlines",
       loading: true,
+      modalClosed: true
     };
     this.sectionCb = this.sectionCb.bind(this);
     this.searchCallback = this.searchCallback.bind(this);
+    this.modalCallback = this.modalCallback.bind(this);
   }
   async componentDidMount() {
     const url =
@@ -71,12 +74,16 @@ class App extends React.Component {
       });
     });
   }
+   modalCallback(){
+    const modalClosed = this.state.modalClosed;
+    this.setState({modalClosed: !modalClosed})
+   }
   render() {
-    const { articleArray, section, loading } = this.state;
+    const { articleArray, section, loading,modalClosed } = this.state;
 
     return (
       <div style={{ display: "flex", fontFamily: "Lato, sans-serif" }}>
-       {/* <Navbar section={section} sectionCb={this.sectionCb} />
+        <Navbar section={section} sectionCb={this.sectionCb} modalCallback={this.modalCallback} />
         {!loading ? (
           <Main
             articleArray={articleArray}
@@ -95,8 +102,9 @@ class App extends React.Component {
           >
             <CircularProgress style={{ color: "#fff" }} size={60} />
           </div>
-        )}*/}
-        <Landing/>
+        )}
+        <Modal closed={modalClosed} modalCallback={this.modalCallback}>
+        </Modal>
       </div>
     );
   }

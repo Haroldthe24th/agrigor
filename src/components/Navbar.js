@@ -15,13 +15,14 @@ import ApartmentIcon from "@material-ui/icons/Apartment";
 import LocalMoviesIcon from "@material-ui/icons/LocalMovies";
 import Tooltip from "@material-ui/core/Tooltip";
 import WhatshotIcon from "@material-ui/icons/Whatshot";
+import AddIcon from '@material-ui/icons/Add';
 const items = [
   { name: "home", label: "Home" },
   { name: "billing", label: "Billing" },
   { name: "settings", label: "Settings" },
 ];
 
-function Navbar({ section, sectionCb }) {
+function Navbar({ section, sectionCb,modalCallback }) {
   return (
     <div style={{ flex: " 0 0 80px" }}>
       <div className="sidebar">
@@ -103,6 +104,24 @@ function Navbar({ section, sectionCb }) {
                   }}
                   fontSize="large"
                 />
+              </Tooltip>
+            </ListItemIcon>
+          </ListItem>
+            <ListItem
+            button
+            style={{
+              padding: "1rem",
+              background: section == "movies" ? "#ff7417" : "",
+            }}
+            onClick={() => modalCallback()}
+          >
+            <ListItemIcon>
+              <Tooltip title="movies" placement="right-start" arrow>
+              <AddIcon   style={{
+                    color: section == "movies" ? "#fff" : "rgb(96, 102, 113)",
+                  }}
+                  fontSize="large"/>
+              
               </Tooltip>
             </ListItemIcon>
           </ListItem>
