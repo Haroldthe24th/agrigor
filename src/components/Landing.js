@@ -35,6 +35,7 @@ function Landing() {
 return <LandingCard cardCallback={cardCallback} id={arr.id} selected={arr.selected} title={arr.title}/>
 })}
 </div>
+<p style={{color: "white",float:"right", marginRight: "1.2rem"}}>save</p> 
 </div>
   );
 }

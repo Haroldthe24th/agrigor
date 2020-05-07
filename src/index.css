@@ -184,8 +184,8 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .landing-card-section {
-  width: 50rem;
- /* height: 25rem;*/
+  width: 45rem;
+  height: 22rem;
   background: #212329;
 }
 .landing-card-holder {
@@ -218,6 +218,7 @@ border: 1px solid #404040;
  backface-visibility: hidden;*/
   cursor: pointer;
   background: #e68443;
+  color: white;
 }
 
  .modal {
@@ -241,7 +242,6 @@ border: 1px solid #404040;
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;

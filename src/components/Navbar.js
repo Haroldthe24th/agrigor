@@ -27,6 +27,32 @@ function Navbar({ section, sectionCb,modalCallback }) {
     <div style={{ flex: " 0 0 80px" }}>
       <div className="sidebar">
         <List disablePadding dense>
+          {items.map((item, index) => {
+            return <ListItem
+            button
+            style={{
+              padding: "1rem",
+              background:
+                section == "headlines"
+                  ? "linear-gradient(90deg, rgba(255,142,65,1) 0%, rgba(255,116,23,1) 53%)"
+                  : "",
+            }}
+            onClick={() => sectionCb("headlines")}
+          >
+
+            <ListItemIcon>
+              <Tooltip title="headlines" placement="right-start" arrow>
+                <WhatshotIcon
+                  style={{
+                    color:
+                      section == "headlines" ? "#fff" : "rgb(96, 102, 113)",
+                  }}
+                  fontSize="large"
+                />
+              </Tooltip>
+            </ListItemIcon>
+          </ListItem>
+          })}
           <ListItem
             button
             style={{
@@ -38,6 +64,7 @@ function Navbar({ section, sectionCb,modalCallback }) {
             }}
             onClick={() => sectionCb("headlines")}
           >
+
             <ListItemIcon>
               <Tooltip title="headlines" placement="right-start" arrow>
                 <WhatshotIcon
