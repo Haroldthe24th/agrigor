@@ -14,11 +14,17 @@ class App extends React.Component {
       articleArray: [],
       section: "headlines",
       loading: true,
-      modalClosed: true
+      modalClosed: true,
+      navbarItems: [
+  { id:0,title: "health", label: "health" , selected:false, inNavbar: false},
+  { id: 1,title: "fitness", label: "fitness" , selected:false, inNavbar:true},
+  { id: 2,title: "fashion", label: "fashion" , selected:false, inNavbar: false},
+]
     };
     this.sectionCb = this.sectionCb.bind(this);
     this.searchCallback = this.searchCallback.bind(this);
     this.modalCallback = this.modalCallback.bind(this);
+    this.landingCallback = this.landingCallback.bind(this);
   }
   async componentDidMount() {
     const url =
@@ -78,12 +84,19 @@ class App extends React.Component {
     const modalClosed = this.state.modalClosed;
     this.setState({modalClosed: !modalClosed})
    }
+   landingCallback(data){
+    this.setState({navbarItems: data})
+    console.log("data", data)
+   }
   render() {
-    const { articleArray, section, loading,modalClosed } = this.state;
+    const { articleArray, section, loading,modalClosed,navbarItems } = this.state;
 
     return (
       <div style={{ display: "flex", fontFamily: "Lato, sans-serif" }}>
-        <Navbar section={section} sectionCb={this.sectionCb} modalCallback={this.modalCallback} />
+        <Navbar navbarItems={navbarItems.filter((item, index) => item.inNavbar == true)} 
+        section={section}
+         sectionCb={this.sectionCb}
+          modalCallback={this.modalCallback} />
         {!loading ? (
           <Main
             articleArray={articleArray}
@@ -103,7 +116,11 @@ class App extends React.Component {
             <CircularProgress style={{ color: "#fff" }} size={60} />
           </div>
         )}
-        <Modal closed={modalClosed} modalCallback={this.modalCallback}>
+        <Modal 
+          landingCallback={this.landingCallback}
+          closed={modalClosed} 
+          modalCallback={this.modalCallback} 
+          navbarItems={navbarItems}>
         </Modal>
       </div>
     );

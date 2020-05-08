@@ -16,19 +16,15 @@ import LocalMoviesIcon from "@material-ui/icons/LocalMovies";
 import Tooltip from "@material-ui/core/Tooltip";
 import WhatshotIcon from "@material-ui/icons/Whatshot";
 import AddIcon from '@material-ui/icons/Add';
-const items = [
-  { name: "home", label: "Home" },
-  { name: "billing", label: "Billing" },
-  { name: "settings", label: "Settings" },
-];
 
-function Navbar({ section, sectionCb,modalCallback }) {
+
+function Navbar({ section, sectionCb,modalCallback, navbarItems }) {
   return (
     <div style={{ flex: " 0 0 80px" }}>
       <div className="sidebar">
         <List disablePadding dense>
-          {items.map((item, index) => {
-            return <ListItem
+         
+          <ListItem
             button
             style={{
               padding: "1rem",
@@ -51,89 +47,20 @@ function Navbar({ section, sectionCb,modalCallback }) {
                 />
               </Tooltip>
             </ListItemIcon>
+          </ListItem>
+         
+           {navbarItems.map((item, index) => {
+            return  <ListItem
+            button
+            style={{
+              padding: "1rem",
+              background: section == item.title ? "#ff7417" : "",
+            }}
+            onClick={() => sectionCb(item.title)}
+          >
+           {item.title}
           </ListItem>
           })}
-          <ListItem
-            button
-            style={{
-              padding: "1rem",
-              background:
-                section == "headlines"
-                  ? "linear-gradient(90deg, rgba(255,142,65,1) 0%, rgba(255,116,23,1) 53%)"
-                  : "",
-            }}
-            onClick={() => sectionCb("headlines")}
-          >
-
-            <ListItemIcon>
-              <Tooltip title="headlines" placement="right-start" arrow>
-                <WhatshotIcon
-                  style={{
-                    color:
-                      section == "headlines" ? "#fff" : "rgb(96, 102, 113)",
-                  }}
-                  fontSize="large"
-                />
-              </Tooltip>
-            </ListItemIcon>
-          </ListItem>
-          <ListItem
-            button
-            style={{
-              padding: "1rem",
-              background: section == "fitness" ? "#ff7417" : "",
-            }}
-            onClick={() => sectionCb("fitness")}
-          >
-            <ListItemIcon>
-              <Tooltip title="fitness" placement="right-start" arrow>
-                <FitnessCenterIcon
-                  style={{
-                    color: section == "fitness" ? "#fff" : "rgb(96, 102, 113)",
-                  }}
-                  fontSize="large"
-                />
-              </Tooltip>
-            </ListItemIcon>
-          </ListItem>
-          <ListItem
-            button
-            style={{
-              padding: "1rem",
-              background: section == "business" ? "#ff7417" : "",
-            }}
-            onClick={() => sectionCb("business")}
-          >
-            <ListItemIcon>
-              <Tooltip title="business" placement="right-start" arrow>
-                <ApartmentIcon
-                  style={{
-                    color: section == "business" ? "#fff" : "rgb(96, 102, 113)",
-                  }}
-                  fontSize="large"
-                />
-              </Tooltip>
-            </ListItemIcon>
-          </ListItem>
-          <ListItem
-            button
-            style={{
-              padding: "1rem",
-              background: section == "movies" ? "#ff7417" : "",
-            }}
-            onClick={() => sectionCb("movies")}
-          >
-            <ListItemIcon>
-              <Tooltip title="movies" placement="right-start" arrow>
-                <LocalMoviesIcon
-                  style={{
-                    color: section == "movies" ? "#fff" : "rgb(96, 102, 113)",
-                  }}
-                  fontSize="large"
-                />
-              </Tooltip>
-            </ListItemIcon>
-          </ListItem>
             <ListItem
             button
             style={{

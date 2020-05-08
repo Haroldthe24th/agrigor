@@ -1,12 +1,12 @@
  
 import React from "react";
 import Landing from "./Landing"
-function Modal({closed, modalCallback}) {
+function Modal({closed, modalCallback, navbarItems,landingCallback}) {
   return (
 <React.Fragment>
  <div className={closed ?"modal closed": "modal"}  id="modal">
         <div className="modal-guts">
-        <Landing/>
+        <Landing navbarItems={navbarItems} landingCallback={landingCallback}/>
         </div>
 
     </div>
