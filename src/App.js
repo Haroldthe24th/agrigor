@@ -40,6 +40,16 @@ class App extends React.Component {
         this.setState({ articleArray: returnArray, loading: false });
       });
     });
+      let req2 = new Request("http://www.localhost:3000/hate");
+      try {
+    await fetch(req2).then((response) => {
+      response.json().then((data) => {
+       console.log("agri api", data)
+      });
+    });
+    } catch(e){
+        console.log(e)
+      }
   }
   async sectionCb(section) {
     this.setState({ section, loading: true });
@@ -92,7 +102,7 @@ class App extends React.Component {
     const { articleArray, section, loading,modalClosed,navbarItems } = this.state;
 
     return (
-      <div style={{ display: "flex", fontFamily: "Lato, sans-serif" }}>
+      <div style={{ display: "flex" }}>
         <Navbar navbarItems={navbarItems.filter((item, index) => item.inNavbar == true)} 
         section={section}
          sectionCb={this.sectionCb}
