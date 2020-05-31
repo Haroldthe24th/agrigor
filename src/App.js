@@ -18,15 +18,15 @@ class App extends React.Component {
       navbarItems: [
         {
           id: 0,
-          title: "health",
-          label: "health",
+          title: "science",
+          label: "science",
           selected: false,
           inNavbar: false,
         },
         {
           id: 1,
-          title: "fitness",
-          label: "fitness",
+          title: "healthAndFitness",
+          label: "healthAndFitness",
           selected: false,
           inNavbar: false,
         },
@@ -44,6 +44,28 @@ class App extends React.Component {
           selected: false,
           inNavbar: false,
         },
+         {
+          id: 4,
+          title: "business",
+          label: "business",
+          selected: false,
+          inNavbar: false,
+        },
+        
+         {
+          id: 5,
+          title: "tech",
+          label: "tech",
+          selected: false,
+          inNavbar: false,
+        },
+         {
+          id: 6,
+          title: "sports",
+          label: "sports",
+          selected: false,
+          inNavbar: false,
+        }
       ],
     };
     this.sectionCb = this.sectionCb.bind(this);
@@ -86,8 +108,36 @@ class App extends React.Component {
     //try to find saved user categories
     //saved localy in the browser
     const userCategories = localStorage.getItem("userCategories");
-    if (userCategories != null) {
-      this.setState({ navbarItems: JSON.parse(userCategories) });
+        if (userCategories != null) {
+
+    const parsedUserCategories = JSON.parse(userCategories);
+    console.log(parsedUserCategories)
+    const userCatArray = [];
+    parsedUserCategories.forEach((cat, index) => {
+      if(cat.selected){
+      userCatArray.push(cat.title)
+      }
+    })
+    console.log("userCatArray",userCatArray)
+    fetch("http://localhost:3000/resources/getResources/mixed",{
+      method: 'POST',
+       headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+
+    },
+      body: 
+        JSON.stringify({types: userCatArray})
+      
+      })
+      .then((response) => response.json())
+      .then((data) =>{
+        let returnArray = data;
+        console.log(data);
+        this.setState({ articleArray: returnArray, loading: false });
+      })
+      .catch((error) => console.log("error", error));
+      this.setState({ navbarItems: parsedUserCategories });
     }
     console.log(userCategories);
   }
@@ -97,12 +147,13 @@ class App extends React.Component {
     const url =
       "http://localhost:3000/resources/getResources/" +
       section;
-      
+          console.log("url ",url)
+
     let req = new Request(url);
     await fetch(req).then((response) => {
       response.json().then((data) => {
-        let returnArray = data.articles;
-        console.log(data);
+        let returnArray = data;
+        console.log("data",data);
         this.setState({ articleArray: returnArray, loading: false });
       });
     });

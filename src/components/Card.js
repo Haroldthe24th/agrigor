@@ -4,7 +4,6 @@ import { Waypoint } from "react-waypoint";
 
 function Card({ url, img, title, description, provider }) {
   if(provider === "sportsnet" && img != undefined){
-    console.log(provider)
     img = img.url
   }
   const [uri, changeUri] = useState("");
@@ -44,7 +43,7 @@ function Card({ url, img, title, description, provider }) {
   return (
     <Waypoint
   onEnter={onVisChange}
-  topOffset={"50%"}
+  topOffset={"1%"}
  // onLeave={this._handleWaypointLeave}
 >
     <div
