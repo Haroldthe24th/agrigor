@@ -2,7 +2,11 @@ import React, { useEffect, useState,createRef } from "react";
 import placeholder from "../placeholder.jpg";
 import { Waypoint } from "react-waypoint";
 
-function Card({ url, urlToImage, title, bold, description, source }) {
+function Card({ url, img, title, description, provider }) {
+  if(provider === "sportsnet" && img != undefined){
+    console.log(provider)
+    img = img.url
+  }
   const [uri, changeUri] = useState("");
   const [visible, changeVis] = useState(false);
   const [ loaded, changeLoaded] = useState(false)
@@ -28,7 +32,7 @@ function Card({ url, urlToImage, title, bold, description, source }) {
 }*/
   const onVisChange = () => {
     changeVis(true);
-        changeUri(urlToImage);
+        changeUri(img);
 
    /* loadImage(urlToImage,).then(image => {
       console.log("images",images)
@@ -64,7 +68,7 @@ function Card({ url, urlToImage, title, bold, description, source }) {
             window.open(url, "_blank");
           }} 
         >
-          {source.name}
+          {provider}
         </div>
         <div className="card-title">{title} </div>
         {/*<div className="card-content">{description}</div>*/}

@@ -11,17 +11,17 @@ function Main({ articleArray, searchCallback }) {
   useEffect(() => {
     window.addEventListener("scroll", onChangeScroll);
     const newArticleArray = [];
-    articleArray.forEach((art, index) => {
+  /*  articleArray.forEach((art, index) => {
       if (pagMod > index) {
         newArticleArray.push(art);
       }
-    });
-    changeMainArticles(newArticleArray);
+    });*/
+    changeMainArticles(articleArray);
     return () => {
       window.removeEventListener("scroll", onChangeScroll);
     };
   }, []);
-  useEffect(() => {
+ /* useEffect(() => {
     if(pagMod > articleArray.length) return;
     if (scrollA >= scrollB) {
       const newArticleArray = [];
@@ -36,7 +36,7 @@ function Main({ articleArray, searchCallback }) {
       aChange(-2);
       bChange(-1);
     }
-  }, [scrollB, scrollA]);
+  }, [scrollB, scrollA]);*/
   const onChangeScroll = (e) => {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
       aChange(window.innerHeight + window.scrollY);
@@ -65,21 +65,20 @@ function Main({ articleArray, searchCallback }) {
         const {
           url,
           author,
-          urlToImage,
+          img,
           description,
-          publishedAt,
+          provider,
           title,
-          source,
+
         } = article;
         return (
           <Card
-            source={source}
             title={title}
             url={url}
             author={author}
-            urlToImage={urlToImage}
+            img={img}
             description={description}
-            publishedAt={publishedAt}
+            provider={provider}
             key={key}
           />
         );

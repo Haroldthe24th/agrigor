@@ -27,20 +27,28 @@ class App extends React.Component {
     this.landingCallback = this.landingCallback.bind(this);
   }
   async componentDidMount() {
-    const url =
-      "https://newsapi.org/v2/top-headlines?" +
-      "country=us&" +
-      "pageSize=100" +
-      "&apiKey=9635cc6b391a4665a96989771f2334cd";
+    const url ="http://localhost:3000/resources/getResources/sports";
     let req = new Request(url);
     await fetch(req).then((response) => {
       response.json().then((data) => {
-        let returnArray = data.articles;
+        let returnArray = data;
         console.log(data);
         this.setState({ articleArray: returnArray, loading: false });
       });
     });
-      let req2 = new Request("http://www.localhost:3000/hate");
+
+
+    var requestOptions = {
+  method: 'GET',
+  redirect: 'follow'
+};
+
+fetch("http://localhost:3000/resources/getResources/sports")
+  .then(response => response.json())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+  /*
+      let req2 = new Request("http://localhost:3000/resources/getResources/sports");
       try {
     await fetch(req2).then((response) => {
       response.json().then((data) => {
@@ -49,7 +57,7 @@ class App extends React.Component {
     });
     } catch(e){
         console.log(e)
-      }
+      }*/
   }
   async sectionCb(section) {
     this.setState({ section, loading: true });
