@@ -61,7 +61,7 @@ function Main({ articleArray, searchCallback }) {
     >
       <ScrollButton />
       <SearchBar searchCallback={searchCallback} />
-      {mainArticles.map((article, key) => {
+      {articleArray.map((article, key) => {
         const {
           url,
           author,
