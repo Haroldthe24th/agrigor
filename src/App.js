@@ -116,7 +116,7 @@ class App extends React.Component {
     parsedUserCategories.forEach((cat, index) => {
       if(cat.selected){
       userCatArray.push(cat.title)
-      }
+      }    
     })
     console.log("userCatArray",userCatArray)
     fetch("http://localhost:3000/resources/getResources/mixed",{
