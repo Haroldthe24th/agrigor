@@ -15,15 +15,13 @@ import ApartmentIcon from "@material-ui/icons/Apartment";
 import LocalMoviesIcon from "@material-ui/icons/LocalMovies";
 import Tooltip from "@material-ui/core/Tooltip";
 import WhatshotIcon from "@material-ui/icons/Whatshot";
-import AddIcon from '@material-ui/icons/Add';
+import AddIcon from "@material-ui/icons/Add";
 
-
-function Navbar({ section, sectionCb,modalCallback, navbarItems }) {
+function Navbar({ section, sectionCb, modalCallback, navbarItems }) {
   return (
     <div style={{ flex: " 0 0 80px" }}>
       <div className="sidebar">
         <List disablePadding dense>
-         
           <ListItem
             button
             style={{
@@ -35,7 +33,6 @@ function Navbar({ section, sectionCb,modalCallback, navbarItems }) {
             }}
             onClick={() => sectionCb("headlines")}
           >
-
             <ListItemIcon>
               <Tooltip title="headlines" placement="right-start" arrow>
                 <WhatshotIcon
@@ -48,20 +45,25 @@ function Navbar({ section, sectionCb,modalCallback, navbarItems }) {
               </Tooltip>
             </ListItemIcon>
           </ListItem>
-         
-           {navbarItems.map((item, index) => {
-            return  <ListItem
-            button
-            style={{
-              padding: "1rem",
-              background: section == item.title ? "#ff7417" : "",
-            }}
-            onClick={() => sectionCb(item.title)}
-          >
-           {item.title}
-          </ListItem>
+
+          {navbarItems.map((item, index) => {
+            return (
+              <ListItem
+                button
+                style={{
+                  paddingTop: "1rem",
+                  paddingBottom: "1rem",
+                  paddingLeft: "0.8rem",
+                  background: section == item.title ? "#ff7417" : "",
+                  fontSize: ".8rem"
+                }}
+                onClick={() => sectionCb(item.title)}
+              >
+                {item.title}
+              </ListItem>
+            );
           })}
-            <ListItem
+          <ListItem
             button
             style={{
               padding: "1rem",
@@ -71,11 +73,12 @@ function Navbar({ section, sectionCb,modalCallback, navbarItems }) {
           >
             <ListItemIcon>
               <Tooltip title="movies" placement="right-start" arrow>
-              <AddIcon   style={{
+                <AddIcon
+                  style={{
                     color: section == "movies" ? "#fff" : "rgb(96, 102, 113)",
                   }}
-                  fontSize="large"/>
-              
+                  fontSize="large"
+                />
               </Tooltip>
             </ListItemIcon>
           </ListItem>

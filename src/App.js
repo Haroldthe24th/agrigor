@@ -12,6 +12,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       articleArray: [],
+      userHasFeed: true,
       section: "headlines",
       loading: true,
       modalClosed: true,
@@ -25,8 +26,8 @@ class App extends React.Component {
         },
         {
           id: 1,
-          title: "healthAndFitness",
-          label: "healthAndFitness",
+          title: "fitness",
+          label: "fitness",
           selected: false,
           inNavbar: false,
         },
@@ -44,122 +45,124 @@ class App extends React.Component {
           selected: false,
           inNavbar: false,
         },
-         {
+
+        {
+          id: 10,
+          title: "uspolitics",
+          label: "us politics",
+          selected: false,
+          inNavbar: false,
+        },
+        {
           id: 4,
           title: "business",
           label: "business",
           selected: false,
           inNavbar: false,
         },
-        
-         {
+
+        {
           id: 5,
           title: "tech",
           label: "tech",
           selected: false,
           inNavbar: false,
         },
-         {
+        {
           id: 6,
           title: "sports",
           label: "sports",
           selected: false,
           inNavbar: false,
-        }
+        },
+        {
+          id: 7,
+          title: "economy",
+          label: "economy",
+          selected: false,
+          inNavbar: false,
+        },
+        {
+          id: 8,
+          title: "lifestyle",
+          label: "lifestyle",
+          selected: false,
+          inNavbar: false,
+        },
+        {
+          id: 9,
+          title: "education",
+          label: "education",
+          selected: false,
+          inNavbar: false,
+        },
+        {
+          id: 11,
+          title: "health",
+          label: "health",
+          selected: false,
+          inNavbar: false,
+        },
       ],
     };
     this.sectionCb = this.sectionCb.bind(this);
     this.searchCallback = this.searchCallback.bind(this);
     this.modalCallback = this.modalCallback.bind(this);
     this.landingCallback = this.landingCallback.bind(this);
+    this.getMixedFeed = this.getMixedFeed.bind(this);
   }
   async componentDidMount() {
-    /* const url = "http://localhost:3000/resources/getResources/sports";
-    let req = new Request(url);
-    await fetch(req).then((response) => {
-      response.json().then((data) => {
-        let returnArray = data;
-        console.log(data);
-        this.setState({ articleArray: returnArray, loading: false });
-      });
-    });
-
-    var requestOptions = {
-      method: "GET",
-      redirect: "follow",
-    };
-
-    fetch("http://localhost:3000/resources/getResources/sports")
-      .then((response) => response.json())
-      .then((result) => console.log(result))
-      .catch((error) => console.log("error", error));
-      */
-    /*
-      let req2 = new Request("http://localhost:3000/resources/getResources/sports");
-      try {
-    await fetch(req2).then((response) => {
-      response.json().then((data) => {
-       console.log("agri api", data)
-      });
-    });
-    } catch(e){
-        console.log(e)
-      }*/
     //try to find saved user categories
     //saved localy in the browser
     const userCategories = localStorage.getItem("userCategories");
-        if (userCategories != null) {
-
-    const parsedUserCategories = JSON.parse(userCategories);
-    console.log(parsedUserCategories)
+    if (userCategories == null) {
+      this.setState({ loading: false, userHasFeed: false });
+    }
+    if (userCategories != null) {
+      this.getMixedFeed(JSON.parse(userCategories));
+    }
+  }
+  async getMixedFeed(parsedUserCategories) {
     const userCatArray = [];
     parsedUserCategories.forEach((cat, index) => {
-      if(cat.selected){
-      userCatArray.push(cat.title)
-      }    
-    })
-    console.log("userCatArray",userCatArray)
-    fetch("http://localhost:3000/resources/getResources/mixed",{
-      method: 'POST',
-       headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
+      if (cat.selected) {
+        userCatArray.push(cat.title);
+      }
+    });
 
-    },
-      body: 
-        JSON.stringify({types: userCatArray})
-      
-      })
+    await fetch("http://localhost:3000/resources/getResources/mixed", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ types: userCatArray }),
+    })
       .then((response) => response.json())
-      .then((data) =>{
+      .then((data) => {
         let returnArray = data;
-        console.log(data);
-        this.setState({ articleArray: returnArray, loading: false });
+        this.setState({
+          articleArray: returnArray,
+          loading: false,
+          navbarItems: parsedUserCategories,
+        });
       })
       .catch((error) => console.log("error", error));
-      this.setState({ navbarItems: parsedUserCategories });
-    }
-    console.log(userCategories);
   }
   async sectionCb(section) {
     this.setState({ section, loading: true });
     //
-    const url =
-      "http://localhost:3000/resources/getResources/" +
-      section;
-          console.log("url ",url)
+    const url = "http://localhost:3000/resources/getResources/" + section;
 
     let req = new Request(url);
     await fetch(req).then((response) => {
       response.json().then((data) => {
         let returnArray = data;
-        console.log("data",data);
         this.setState({ articleArray: returnArray, loading: false });
       });
     });
   }
   async searchCallback(query) {
-    console.log("query", query);
     this.setState({ loading: true });
 
     const url =
@@ -174,7 +177,6 @@ class App extends React.Component {
     await fetch(req).then((response) => {
       response.json().then((data) => {
         let returnArray = data.articles;
-        console.log(data);
         this.setState({ articleArray: returnArray, loading: false });
       });
     });
@@ -184,11 +186,11 @@ class App extends React.Component {
     this.setState({ modalClosed: !modalClosed });
   }
   landingCallback(data) {
-    this.setState({ navbarItems: data });
+    this.setState({ loading: true, section: "headlines", modalClosed: true });
     //save the user prefs to the browser
     localStorage.setItem("userCategories", JSON.stringify(data));
-
-    console.log("data", data);
+    //user added new categories, save data to localstorage, load new feed
+    this.getMixedFeed(data);
   }
   render() {
     const {
@@ -197,6 +199,7 @@ class App extends React.Component {
       loading,
       modalClosed,
       navbarItems,
+      userHasFeed,
     } = this.state;
 
     return (
@@ -211,6 +214,7 @@ class App extends React.Component {
         />
         {!loading ? (
           <Main
+            userHasFeed={userHasFeed}
             articleArray={articleArray}
             searchCallback={this.searchCallback}
           ></Main>

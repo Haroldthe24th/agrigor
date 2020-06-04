@@ -72,6 +72,10 @@ function Card({ url, img, title, description, provider }) {
         <div className="card-title">{title} </div>
         {/*<div className="card-content">{description}</div>*/}
       </div>
+      <div className="card-categories">
+        <span className="card-category">business</span>
+
+      </div>
     </div>
     </Waypoint>
   );

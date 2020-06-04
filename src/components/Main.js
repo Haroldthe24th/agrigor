@@ -3,7 +3,7 @@ import Card from "./Card";
 import ScrollButton from "./ScrollButton";
 import SearchBar from "./SearchBar";
 
-function Main({ articleArray, searchCallback }) {
+function Main({ articleArray, searchCallback, userHasFeed }) {
   const [mainArticles, changeMainArticles] = useState([]);
   const [pagMod, changePagMod] = useState(24);
   const [scrollA, aChange] = useState(-2);
@@ -45,8 +45,7 @@ function Main({ articleArray, searchCallback }) {
     return;
   };
 
-  console.log(mainArticles);
-  console.log(pagMod);
+
   return (
     <div
       style={{
@@ -60,7 +59,9 @@ function Main({ articleArray, searchCallback }) {
       }}
     >
       <ScrollButton />
-      <SearchBar searchCallback={searchCallback} />
+    {/*  <SearchBar searchCallback={searchCallback} />*/}
+    {!userHasFeed && <div className="page-error-msg" ><h1> add categories to get a feed </h1></div>} 
+    {userHasFeed && articleArray != undefined && articleArray.length == 0 && <div className="page-error-msg"><h1  > couldn't find any articles :(</h1></div>}
       {articleArray.map((article, key) => {
         const {
           url,

@@ -1,6 +1,6 @@
 body {
   margin: 0;
-font-family: 'Fira Sans', sans-serif;
+  font-family: "Fira Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -18,6 +18,18 @@ body::-webkit-scrollbar-thumb {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+hr {
+  padding: 0;
+  margin: 0;
+}
+.save-btn {
+  color: #fff;
+   float: right; 
+   margin-right: 1.2rem
+}
+.save-btn:hover  {
+  cursor: pointer;
 }
 .sidebar {
   /* max-width: 240px;*/
@@ -37,7 +49,7 @@ code {
 .card {
   /* Add shadows to create the "card" effect */
   z-index: 10;
-  max-width: 330px;
+  max-width: 17rem;
   transition: 0.3s;
   margin: 1rem;
   border-radius: 5px;
@@ -83,19 +95,35 @@ code {
   padding: 2px 16px;
   overflow: hidden;
 }
-
-.nav-item {
-  padding: 1rem;
+.card-categories {
+  display: flex;
+  flex-direction: row;
+  padding: .5rem;
+}
+.card-category {
+  letter-spacing: 0.5px;
+  font-size: 14px;
+  color:#c1c1c1;
+  border-radius: 20rem;
+  padding: 0.3rem;
+  margin-right: .4rem;;
+  background-color:rgb(81, 84, 90);
 }
 
+.page-error-msg {
+  color: #fff;
+  margin: auto;
+  height: 100vh;
+}
 .card-animate {
-  transform: translateY(300px);
-  animation: fallPerspective 0.5s ease-in-out forwards;
+ /* transform: translateY(300px);
+  animation: fallPerspective 0.5s ease-in-out forwards;*/
   visibility: visible;
   opacity: 1;
 }
 
 @keyframes fallPerspective {
+  
   100% {
     transform: translateY(0px);
     opacity: 1;
@@ -109,7 +137,6 @@ code {
   position: fixed;
   bottom: 0;
   right: 0;
-  border-radius: 100%;
   margin: 0.65rem;
   background: #161719;
   color: #fff;
@@ -141,9 +168,7 @@ code {
   /* background:#161719;*/
   box-shadow: 1px 2px 4px rgba(52, 58, 70, 0.54);
   z-index: 100;
-  background: #161719
-    url(search_icon.svg) no-repeat
-    0.5rem center;
+  background: #161719 url(search_icon.svg) no-repeat 0.5rem center;
 
   background-size: 1.5rem;
   outline: none;
@@ -151,7 +176,7 @@ code {
   transition: all 0.6s ease-out;
   font-weight: bolder;
   letter-spacing: 0.1em;
-  background-position:50%;
+  background-position: 50%;
   color: transparent;
 }
 .search-bar:hover {
@@ -163,22 +188,19 @@ code {
   border-radius: 15rem;
   opacity: 1;
   color: #9b999a;
-  background-position: .5rem;
-
+  background-position: 0.5rem;
 }
 input[type="search"]::-webkit-search-cancel-button {
-
   /* Remove default */
   -webkit-appearance: none;
-   font-family: "Inconsolata", monospace;
-
+  font-family: "Inconsolata", monospace;
 }
 
 .landing-section {
   width: 100vw;
   height: 100vh;
   background: #2a2e35;
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -187,10 +209,11 @@ input[type="search"]::-webkit-search-cancel-button {
   width: 45rem;
   height: 22rem;
   background: #212329;
+  border: 1px solid #404040;
+  border-radius: .1rem;
 }
 .landing-card-holder {
-
-  margin:auto;
+  margin: auto;
   margin-top: 1rem;
   flex-direction: row;
   display: flex;
@@ -199,19 +222,18 @@ input[type="search"]::-webkit-search-cancel-button {
   justify-content: center;
 }
 .landing-card {
-  width: 8rem;
+  width: 22%;
   height: 5rem;
-  margin: .4rem;
-  background: rgba(186,186,186,0.05);
-  color:#9b999a;
-    display:flex;
+  margin: 0.4rem;
+  background: rgba(186, 186, 186, 0.05);
+  color: #9b999a;
+  display: flex;
   align-items: center;
   justify-content: center;
- /*  transition: transform .2s;*/ 
-backface-visibility: hidden;
-border-radius: .1rem;
-border: 1px solid #404040;
-
+  /*  transition: transform .2s;*/
+  backface-visibility: hidden;
+  border-radius: 0.1rem;
+  border: 1px solid #404040;
 }
 .landing-card:hover {
   /*transform: scale(1.05);
@@ -221,78 +243,78 @@ border: 1px solid #404040;
   color: white;
 }
 
- .modal {
-        position: fixed;
-        top: 30%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 80px;
-        max-width: 100%;
-        height: 250px;
-        max-height: 100%;
-        z-index: 1000;
-        /*box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.6);*/
-        border-radius: 2px
-    }
-    
-    .modal-guts {
-        /* other stuff we already covered */
-        /* cover the modal */
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        /*padding: 2px 10px;
+.modal {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  max-width: 100%;
+  height: 250px;
+  max-height: 100%;
+  z-index: 1000;
+  /*box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.6);*/
+  border-radius: 2px;
+}
+
+.modal-guts {
+  /* other stuff we already covered */
+  /* cover the modal */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  /*padding: 2px 10px;
   /* spacing as needed */
-        /*padding: 20px 50px 20px 20px;*/
-        /* let it scroll */
-        /*  overflow: auto;*/
-    }
-    
-    .modal-overlay {
-        /* recommendation:
+  /*padding: 20px 50px 20px 20px;*/
+  /* let it scroll */
+  /*  overflow: auto;*/
+}
+
+.modal-overlay {
+  /* recommendation:
      don't focus on the number "1000" here, but rather,
      you should have a documented system for z-index and 
      follow that system. This number should be pretty
      high on the scale in that system.
   */
-        z-index: 100;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: black;
-        opacity: .3;
-    }
-    
-    .modal.closed {
-        display: none;
-    }
-    
-    .modal-overlay.closed {
-        display: none;
-    }
-    
-    .modal-pic-container {
-        height: 45px;
-        width: 60px;
-        background: white;
-        padding: 8px;
-        border-radius: 100%;
-    }
-     .modal-pic {
-       height: 90%;
-       width: 100%;
-    }
-    
-    .modal-pic-container:hover {
-        opacity: 0.9;
-        height: 50px;
-        width: 65px;
-        background: #800;
-    }
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0.3;
+}
+
+.modal.closed {
+  display: none;
+}
+
+.modal-overlay.closed {
+  display: none;
+}
+
+.modal-pic-container {
+  height: 45px;
+  width: 60px;
+  background: white;
+  padding: 8px;
+  border-radius: 100%;
+}
+.modal-pic {
+  height: 90%;
+  width: 100%;
+}
+
+.modal-pic-container:hover {
+  opacity: 0.9;
+  height: 50px;
+  width: 65px;
+  background: #800;
+}
