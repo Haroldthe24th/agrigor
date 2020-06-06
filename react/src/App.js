@@ -97,9 +97,9 @@ class App extends React.Component {
           inNavbar: false,
         },
         {
-          id: 11,
-          title: "health",
-          label: "health",
+          id: 12,
+          title: "crime",
+          label: "crime",
           selected: false,
           inNavbar: false,
         },
@@ -206,7 +206,7 @@ class App extends React.Component {
       navbarItems,
       userHasFeed,
     } = this.state;
-    console.log(articleArray)
+    console.log(articleArray);
     return (
       <div style={{ display: "flex" }}>
         <Navbar

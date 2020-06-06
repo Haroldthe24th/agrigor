@@ -72,7 +72,8 @@ function Card({ url, img, title, description, provider, categories }) {
           {/*<div className="card-content">{description}</div>*/}
         </div>
         <div className="card-categories">
-          {categories.length != 0 &&
+          {categories != undefined &&
+            categories.length != 0 &&
             categories.length < 5 &&
             Array.isArray(categories) &&
             categories.map((cat) => {

@@ -13,10 +13,10 @@ router.get("/", async (req, res) => {
 
 
 try{
-  const feed = await feedparserFoo("https://www.e-ir.info/feed/")
-  bonsole(feed)
-
+  const feed = await feedparserFoo("https://blogs.findlaw.com/blotter/atom.xml")
+bonsole(feed)
   res.send({feed})
+  
 }
  catch(e) {
   console.log(e)

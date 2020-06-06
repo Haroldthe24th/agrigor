@@ -51,9 +51,8 @@ function Navbar({ section, sectionCb, modalCallback, navbarItems }) {
               <ListItem
                 button
                 style={{
-                  paddingTop: "1rem",
-                  paddingBottom: "1rem",
-                  paddingLeft: "0.8rem",
+                  padding: "1rem",
+                  paddingLeft: ".5rem",
                   background: section == item.title ? "#ff7417" : "",
                   fontSize: ".8rem"
                 }}

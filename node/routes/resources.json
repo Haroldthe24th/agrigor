@@ -2,18 +2,6 @@
   "resources": [
     {
       "type": ["tech"],
-      "_id": "5eb9651e2f794619c0130e9a",
-      "name": "nytimes",
-      "__v": 0
-    },
-    {
-      "type": ["tech"],
-      "_id": "5eb95eb40750b170141cbc82",
-      "name": "bbc",
-      "__v": 0
-    },
-    {
-      "type": ["tech"],
       "_id": "5eb95ef79c7a887748cef16b",
       "url": "http://feeds.bbci.co.uk/news/technology/rss.xml",
       "name": "bbc",
@@ -145,14 +133,6 @@
       "__v": 0
     },
     {
-      "type": ["uspolitics"],
-      "_id": "5ed363dcf5c4eb23d8d5f644",
-      "url": "http://feeds.feedburner.com/sciencealert-latestnews",
-      "name": "sciencealert",
-      "providerLink": "https://www.sciencealert.com/",
-      "__v": 0
-    },
-    {
       "type": ["science"],
       "_id": "5ed36433f5c4eb23d8d5f645",
       "url": "http://feeds.feedburner.com/sciencealert-latestnews",
@@ -200,6 +180,22 @@
       "providerLink": "https://www.edweek.org/ew/index.htm",
       "__v": 0
     }
+    ,
+    {
+      "type": ["lifestyle"],
+      "_id": "5ed36433f5c4eb23d9d5f644",
+      "url": "http://www.consciouslifestylemag.com/feed/",
+      "name": "consciouslifestylemag",
+      "providerLink": "http://www.consciouslifestylemag.com/",
+      "__v": 0
+    },
+    {
+      "type": ["education"],
+      "_id": "5ed36433f5c4eb23d9d5f644",
+      "url": "https://www.eschoolnews.com/feed/",
+      "name": "eschoolnews",
+      "providerLink": "https://www.eschoolnews.com/",
+      "__v": 0
+    }
   ]
 }
-

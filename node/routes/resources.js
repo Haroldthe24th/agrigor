@@ -28,7 +28,7 @@ function homePath() {
 function getSrc(string) {
   const srcWithQuotes = string.match(/src\=([^\s]*)\s/)[1];
   const src = srcWithQuotes.substring(1, srcWithQuotes.length - 1);
-  bonsole(srcWithQuotes)
+  bonsole(srcWithQuotes);
   return src;
 }
 router.get("/getAllResources", async (req, res) => {
@@ -263,6 +263,201 @@ const tgNormalizer = (feedItem, provider, type) => {
 
     return normalizedItem;
   }
+  if (provider === "oecd") {
+    const normalizedItem = {
+      creator: feedItem.author,
+      title: feedItem.title,
+      url: feedItem.link,
+      pubDate: feedItem.pubDate,
+      description: feedItem.description,
+      provider: provider,
+      categories: type,
+      img: "", //image in desc src="..."
+    };
+
+    return normalizedItem;
+  }
+  if (provider === "sciencealert") {
+    const normalizedItem = {
+      creator: feedItem.author,
+      title: feedItem.title,
+      url: feedItem.link,
+      pubDate: feedItem.pubDate,
+      description: feedItem.description,
+      provider: provider,
+      categories: type,
+      img: getSrc(feedItem.description), //image in desc src="..."
+    };
+
+    return normalizedItem;
+  }
+  if (provider === "wsj") {
+    const normalizedItem = {
+      creator: feedItem.author,
+      title: feedItem.title,
+      url: feedItem.link,
+      pubDate: feedItem.pubDate,
+      description: feedItem.description,
+      provider: provider,
+      categories: type,
+      img: "",
+    };
+    return normalizedItem;
+  }
+  if (provider === "bbc") {
+    const normalizedItem = {
+      creator: feedItem.author,
+      title: feedItem.title,
+      url: feedItem.link,
+      pubDate: feedItem.pubDate,
+      description: feedItem.description,
+      provider: provider,
+      categories: type,
+      img: "",
+    };
+
+    return normalizedItem;
+  }
+  if (provider === "huffpost") {
+    const normalizedItem = {
+      creator: feedItem.author,
+      title: feedItem.title,
+      url: feedItem.link,
+      pubDate: feedItem.pubDate,
+      description: feedItem.description,
+      provider: provider,
+      categories: type,
+      img: feedItem.enclosures[0].url,
+    };
+
+    return normalizedItem;
+  }
+  if (provider === "huffpost") {
+    const normalizedItem = {
+      creator: feedItem.author,
+      title: feedItem.title,
+      url: feedItem.link,
+      pubDate: feedItem.pubDate,
+      description: feedItem.description,
+      provider: provider,
+      categories: type,
+      img: feedItem.enclosures[0].url,
+    };
+
+    return normalizedItem;
+  }
+  if (provider === "nytimes") {
+    const normalizedItem = {
+      creator: feedItem.author,
+      title: feedItem.title,
+      url: feedItem.link,
+      pubDate: feedItem.pubDate,
+      description: feedItem.description,
+      provider: provider,
+      categories: type,
+      img: feedItem.enclosures[0].url,
+    };
+
+    return normalizedItem;
+  }
+  if (provider === "thepoliticalinsider") {
+    const normalizedItem = {
+      creator: feedItem.author,
+      title: feedItem.title,
+      url: feedItem.link,
+      pubDate: feedItem.pubDate,
+      description: feedItem.description,
+      provider: provider,
+      categories: type,
+      img: "",
+    };
+
+    return normalizedItem;
+  }
+  if (provider === "consciouslifestylemag") {
+    const normalizedItem = {
+      creator: feedItem.author,
+      title: feedItem.title,
+      url: feedItem.link,
+      pubDate: feedItem.pubDate,
+      description: feedItem.description,
+      provider: provider,
+      categories: type,
+      img: getSrc(feedItem.description),
+    };
+
+    return normalizedItem;
+  }
+  if (provider === "edsurge") {
+    const normalizedItem = {
+      creator: feedItem.author,
+      title: feedItem.title,
+      url: feedItem.link,
+      pubDate: feedItem.pubDate,
+      description: feedItem.description,
+      provider: provider,
+      categories: type,
+      img: feedItem.enclosures != undefined ? feedItem.enclosures[0].url : "",
+    };
+
+    return normalizedItem;
+  }
+  if (provider === "edweek") {
+    const normalizedItem = {
+      creator: feedItem.author,
+      title: feedItem.title,
+      url: feedItem.link,
+      pubDate: feedItem.pubDate,
+      description: feedItem.description,
+      provider: provider,
+      categories: type,
+      img: feedItem.enclosures != undefined ? feedItem.enclosures[0].url : "",
+    };
+
+    return normalizedItem;
+  }
+  if (provider === "eschoolnews") {
+    const normalizedItem = {
+      creator: feedItem.author,
+      title: feedItem.title,
+      url: feedItem.link,
+      pubDate: feedItem.pubDate,
+      description: feedItem.description,
+      provider: provider,
+      categories: type,
+      img: getSrc(feedItem.description),
+    };
+
+    return normalizedItem;
+  }
+  if (provider === "nypost") {
+    const normalizedItem = {
+      creator: feedItem.author,
+      title: feedItem.title,
+      url: feedItem.link,
+      pubDate: feedItem.pubDate,
+      description: feedItem.description,
+      provider: provider,
+      categories: type,
+      img: feedItem.enclosures != undefined ? feedItem.enclosures[0].url : "",
+    };
+
+    return normalizedItem;
+  }
+  if (provider === "findlaw") {
+    const normalizedItem = {
+      creator: feedItem.author,
+      title: feedItem.title,
+      url: feedItem.link,
+      pubDate: feedItem.pubDate,
+      description: feedItem.description,
+      provider: provider,
+      categories: type,
+      img: "",
+    };
+
+    return normalizedItem;
+  }
   return feedItem;
 };
 
@@ -327,13 +522,3 @@ function splitter(string) {
 //name="eschoolnews"
 //url=https://www.eschoolnews.com/feed/
 //type=education
-
-//ProviderUrl=http://www.consciouslifestylemag.com/
-//name="consciouslifestylemag"
-//url=http://www.consciouslifestylemag.com/feed/
-//type=lifestyle
-
-//ProviderUrl=https://www.wired.com/
-//name="wired"
-//url=https://www.wired.com/feed/category/business/latest/rss
-//type=business

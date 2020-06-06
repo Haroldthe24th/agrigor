@@ -55,6 +55,7 @@ function Landing({ navbarItems, landingCallback }) {
           );
         })}
       </div>
+      <div className="save-btn-holder">
       <div
 	  className="save-btn"
         onClick={() => returnNavbarItems()}
@@ -63,7 +64,7 @@ function Landing({ navbarItems, landingCallback }) {
 		<hr />
 
       </div>
-
+      </div>
     </div>
   );
 }
