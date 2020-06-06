@@ -8,7 +8,6 @@ let parser = new Parser();
 var FeedParser = require("feedparser");
 var fetch = require("node-fetch");
 var _ = require("underscore");
-const bonsole = require("bonsole");
 const fs = require("fs");
 
 function getResources() {

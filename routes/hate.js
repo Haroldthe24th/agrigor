@@ -6,7 +6,6 @@ var FeedParser = require('feedparser');
 var fetch = require('node-fetch');
 
 const Post = require("../models/Post") // new
-const bonsole = require('bonsole');
  
 
 router.get("/", async (req, res) => {
