@@ -206,7 +206,6 @@ class App extends React.Component {
       navbarItems,
       userHasFeed,
     } = this.state;
-    console.log(articleArray);
     return (
       <div style={{ display: "flex" }}>
         <Navbar

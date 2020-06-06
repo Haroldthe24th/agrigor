@@ -38,7 +38,6 @@ function Card({ url, img, title, description, provider, categories }) {
 
 })*/
   };
-  console.log("categories", categories);
 
   return (
     <Waypoint

@@ -2,7 +2,6 @@
 import React from "react";
 import Landing from "./Landing"
 function Modal({closed, modalCallback, navbarItems,landingCallback}) {
-  console.log(navbarItems)
   return (
 <React.Fragment>
  <div className={closed ?"modal closed": "modal"}  id="modal">
