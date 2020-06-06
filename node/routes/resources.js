@@ -24,12 +24,19 @@ function homePath() {
 /*router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });*/
+
+function getSrc(string) {
+  const srcWithQuotes = string.match(/src\=([^\s]*)\s/)[1];
+  const src = srcWithQuotes.substring(1, srcWithQuotes.length - 1);
+  bonsole(srcWithQuotes)
+  return src;
+}
 router.get("/getAllResources", async (req, res) => {
   // const resources = await Resources.find();
 
   const resources = getResources();
-  console.log(typeof(resources))
-  resources.forEach((res, index) => bonsole(res))
+  console.log(typeof resources);
+  resources.forEach((res, index) => bonsole(res));
   bonsole(resources);
   /**fs.readFile('student.json', (err, data) => {
     if (err) throw err;
@@ -49,7 +56,6 @@ router.post("/getResources/mixed", upload.none(), async (req, res) => {
     //get all the resources we need to make the requests
     for (const type of types) {
       allResources.forEach((res, index) => {
-
         if (res.type.includes(type)) {
           resources.push(res);
         }
@@ -57,7 +63,7 @@ router.post("/getResources/mixed", upload.none(), async (req, res) => {
     }
 
     //flatten resources
-   /* const flatResources = [];
+    /* const flatResources = [];
     resources.forEach((res, index) => {
       flatResources.push(...res);
     });
@@ -101,11 +107,10 @@ router.get("/getResources/:type", async (req, res) => {
       if (res.type.includes(type)) {
         resources.push(res);
       }
-    })
+    });
     bonsole(resources);
     const promises = [];
     resources.forEach((rc, index) => {
-
       promises.push(feedparserFoo(rc.url, rc.name, rc.type));
     });
     const results = await Promise.all(promises.map((p) => p.catch((e) => e)));
@@ -237,11 +242,27 @@ const tgNormalizer = (feedItem, provider, type) => {
       description: feedItem.description,
       provider: provider,
       categories: type,
-      img: "", //image in desc src="..."
+      img: getSrc(feedItem.description),
+      //image in desc src="..."
     };
+
     return normalizedItem;
   }
 
+  if (provider === "mensjournal") {
+    const normalizedItem = {
+      creator: feedItem.author,
+      title: feedItem.title,
+      url: feedItem.link,
+      pubDate: feedItem.pubDate,
+      description: feedItem.description,
+      provider: provider,
+      categories: type,
+      img: feedItem.enclosures[0].url, //image in desc src="..."
+    };
+
+    return normalizedItem;
+  }
   return feedItem;
 };
 

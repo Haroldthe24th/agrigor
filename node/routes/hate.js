@@ -13,9 +13,10 @@ router.get("/", async (req, res) => {
 
 
 try{
-  const feed = await feedparserFoo("https://thecrimereport.org/feed/")
-  res.send({feed})
+  const feed = await feedparserFoo("https://www.e-ir.info/feed/")
   bonsole(feed)
+
+  res.send({feed})
 }
  catch(e) {
   console.log(e)
