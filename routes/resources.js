@@ -33,7 +33,6 @@ router.get("/getAllResources", async (req, res) => {
   // const resources = await Resources.find();
 
   const resources = getResources();
-  resources.forEach((res, index) => bonsole(res));
   /**fs.readFile('student.json', (err, data) => {
     if (err) throw err;
     let student = JSON.parse(data);
@@ -63,7 +62,7 @@ router.post("/getResources/mixed", upload.none(), async (req, res) => {
     resources.forEach((res, index) => {
       flatResources.push(...res);
     });
-    bonsole(flatResources)*/
+*/
 
     //make all the promises
     const promises = [];

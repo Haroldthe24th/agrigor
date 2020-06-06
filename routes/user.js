@@ -4,7 +4,6 @@ var { check, validationResult } = require("express-validator/check");
 var bcrypt = require("bcryptjs");
 var jwt = require("jsonwebtoken");
 var router = express.Router();
-var bonsole = require("bonsole");
 var User = require("../models/User"); 
 const multer = require("multer");
 const upload = multer();
