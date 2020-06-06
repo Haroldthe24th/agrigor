@@ -36,7 +36,7 @@ app.use(cors());
 //******
 //routes
 //******
-app.use("/", indexRouter);
+//app.use("/", indexRouter);
 app.use("/api/stats", statsRouter);
 app.use("/posts", postsRouter);
 app.use("/hate", hateRouter);
@@ -51,10 +51,11 @@ app.use("/resources", resourcesRouter);
 //if (app.get("env") === "production") {
   app.use(express.static(path.join(__dirname, "./react/build")));
 
-  app.get("*", (req, res) => {
+  app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "./react/build/index.html"));
   });
 //}
+console.log(path.join(__dirname, "./react/build/index.html"))
 
 // error handler
 app.use(function (err, req, res, next) {
