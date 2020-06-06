@@ -28,16 +28,13 @@ function homePath() {
 function getSrc(string) {
   const srcWithQuotes = string.match(/src\=([^\s]*)\s/)[1];
   const src = srcWithQuotes.substring(1, srcWithQuotes.length - 1);
-  bonsole(srcWithQuotes);
   return src;
 }
 router.get("/getAllResources", async (req, res) => {
   // const resources = await Resources.find();
 
   const resources = getResources();
-  console.log(typeof resources);
   resources.forEach((res, index) => bonsole(res));
-  bonsole(resources);
   /**fs.readFile('student.json', (err, data) => {
     if (err) throw err;
     let student = JSON.parse(data);
@@ -74,7 +71,6 @@ router.post("/getResources/mixed", upload.none(), async (req, res) => {
     resources.forEach((rc, index) => {
       promises.push(feedparserFoo(rc.url, rc.name, rc.type));
     });
-    bonsole(promises);
 
     //call the promises to resolve or fail
     const results = await Promise.all(promises.map((p) => p.catch((e) => e)));
@@ -99,7 +95,6 @@ router.post("/getResources/mixed", upload.none(), async (req, res) => {
 });
 router.get("/getResources/:type", async (req, res) => {
   const type = req.params.type;
-  console.log();
   try {
     const resources = [];
     const allResources = getResources();
@@ -108,14 +103,12 @@ router.get("/getResources/:type", async (req, res) => {
         resources.push(res);
       }
     });
-    bonsole(resources);
     const promises = [];
     resources.forEach((rc, index) => {
       promises.push(feedparserFoo(rc.url, rc.name, rc.type));
     });
     const results = await Promise.all(promises.map((p) => p.catch((e) => e)));
     const validResults = results.filter((result) => !(result instanceof Error));
-    console.log(validResults);
 
     const mergedValidResults = [];
     validResults.forEach((res, index) => {
@@ -132,7 +125,6 @@ router.get("/getResources/:type", async (req, res) => {
 });
 
 router.post("/addResource", upload.none(), async (req, res) => {
-  console.log(splitter(req.body.type));
 
   const resources = new Resources({
     url: req.body.url,
@@ -502,7 +494,6 @@ const feedparserFoo = (feedUrl, provider, type) => {
       while ((item = stream.read())) {
         //feed.push(tgNormalizer(item, provider));
         //feed.push(tgNormalizer(item, provider));
-        bonsole(item);
 
         feed.push(tgNormalizer(item, provider, type));
       }

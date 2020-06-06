@@ -14,7 +14,6 @@ router.get("/", async (req, res) => {
 
 try{
   const feed = await feedparserFoo("https://blogs.findlaw.com/blotter/atom.xml")
-bonsole(feed)
   res.send({feed})
   
 }
