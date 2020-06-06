@@ -1,0 +1,205 @@
+{
+  "resources": [
+    {
+      "type": ["tech"],
+      "_id": "5eb9651e2f794619c0130e9a",
+      "name": "nytimes",
+      "__v": 0
+    },
+    {
+      "type": ["tech"],
+      "_id": "5eb95eb40750b170141cbc82",
+      "name": "bbc",
+      "__v": 0
+    },
+    {
+      "type": ["tech"],
+      "_id": "5eb95ef79c7a887748cef16b",
+      "url": "http://feeds.bbci.co.uk/news/technology/rss.xml",
+      "name": "bbc",
+      "__v": 0
+    },
+    {
+      "type": ["science"],
+      "_id": "5eb964b74838057d68738910",
+      "url": "https://www.wired.com/feed/category/science/latest/rss",
+      "name": "wired",
+      "__v": 0
+    },
+    {
+      "type": ["business"],
+      "_id": "5eb965064838057d68738911",
+      "url": "https://www.wired.com/feed/category/business/latest/rss",
+      "name": "wired",
+      "__v": 0
+    },
+    {
+      "type": ["tech"],
+      "_id": "5eb965ab4838057d68738912",
+      "url": "https://feeds.a.dj.com/rss/RSSWSJD.xml",
+      "name": "wsj",
+      "__v": 0
+    },
+    {
+      "type": ["world"],
+      "_id": "5eb965c64838057d68738913",
+      "url": "https://feeds.a.dj.com/rss/RSSWorldNews.xml",
+      "name": "wsj",
+      "__v": 0
+    },
+    {
+      "type": ["world"],
+      "_id": "5eb959524838057d68738914",
+      "url": "https://www.theguardian.com/world/rss",
+      "name": "theguardian",
+      "__v": 0
+    },
+    {
+      "type": ["business"],
+      "_id": "5eb959654838057d68738915",
+      "url": "https://www.theguardian.com/business/economics/rss",
+      "name": "theguardian",
+      "__v": 0
+    },
+    {
+      "type": ["business"],
+      "_id": "5eb959774838057d68738916",
+      "url": "https://www.theguardian.com/business/economics/rss",
+      "name": "theguardian",
+      "__v": 0
+    },
+    {
+      "type": ["sports"],
+      "_id": "5ec1713eb4e2b3630c09f99c",
+      "url": "http://www.sportingnews.com/us/rss",
+      "name": "sportingnews",
+      "__v": 0
+    },
+    {
+      "type": ["sports"],
+      "_id": "5ec173f4b4e2b3630c09f99d",
+      "url": "https://www.sportsnet.ca/feed/",
+      "name": "sportsnet",
+      "__v": 0
+    },
+    {
+      "type": ["celebs"],
+      "_id": "5ec175d0b4e2b3630c09f99e",
+      "url": "https://www.etonline.com/news/rss",
+      "name": "et",
+      "__v": 0
+    },
+    {
+      "type": ["celebs"],
+      "_id": "5ec1781ed48cf662b0c8152f",
+      "url": "https://people.com/feed/",
+      "name": "people",
+      "__v": 0
+    },
+    {
+      "type": ["fitness"],
+      "_id": "5ecd9c852d183206d4c4136c",
+      "url": "https://www.mensjournal.com/health-fitness/rss/",
+      "name": "mensjournal",
+      "providerLink": "https://www.mensjournal.com/health-fitness/",
+      "__v": 0
+    },
+    {
+      "type": ["politics", "world"],
+      "_id": "5ed36089f5c4eb23d8d5f63f",
+      "url": "https://www.e-ir.info/feed/",
+      "name": "e-ir",
+      "providerLink": "https://www.e-ir.info/",
+      "__v": 0
+    },
+    {
+      "type": ["economy", "business"],
+      "_id": "5ed36297f5c4eb23d8d5f640",
+      "url": "http://www.oecd.org/index.xml",
+      "name": "oecd",
+      "providerLink": "http://www.oecd.org/",
+      "__v": 0
+    },
+    {
+      "type": ["uspolitics", "politics"],
+      "_id": "5ed3630ef5c4eb23d8d5f641",
+      "url": "https://www.huffpost.com/section/politics/feed",
+      "name": "huffpost",
+      "providerLink": "https://www.huffpost.com/",
+      "__v": 0
+    },
+    {
+      "type": ["uspolitics"],
+      "_id": "5ed36344f5c4eb23d8d5f642",
+      "url": "https://rss.nytimes.com/services/xml/rss/nyt/Politics.xml",
+      "name": "nytimes",
+      "providerLink": "https://www.nytimes.com/",
+      "__v": 0
+    },
+    {
+      "type": ["uspolitics"],
+      "_id": "5ed3636ef5c4eb23d8d5f643",
+      "url": "https://thepoliticalinsider.com/feed/",
+      "name": "thepoliticalinsider",
+      "providerLink": "https://thepoliticalinsider.com/",
+      "__v": 0
+    },
+    {
+      "type": ["uspolitics"],
+      "_id": "5ed363dcf5c4eb23d8d5f644",
+      "url": "http://feeds.feedburner.com/sciencealert-latestnews",
+      "name": "sciencealert",
+      "providerLink": "https://www.sciencealert.com/",
+      "__v": 0
+    },
+    {
+      "type": ["science"],
+      "_id": "5ed36433f5c4eb23d8d5f645",
+      "url": "http://feeds.feedburner.com/sciencealert-latestnews",
+      "name": "sciencealert",
+      "providerLink": "https://www.sciencealert.com/",
+      "__v": 0
+    },
+    {
+      "type": ["crime"],
+      "_id": "5ed36433f5c4eb23d8d5f644",
+      "url": "https://thecrimereport.org/feed/",
+      "name": "thecrimereport",
+      "providerLink": "https://thecrimereport.org/",
+      "__v": 0
+    },
+    {
+      "type": ["crime"],
+      "_id": "5ed36433f5c4eb23d9d5f644",
+      "url": "https://blogs.findlaw.com/blotter/atom.xml",
+      "name": "findlaw",
+      "providerLink": "https://www.findlaw.com/legalblogs.html",
+      "__v": 0
+    },
+    {
+      "type": ["crime"],
+      "_id": "5ed36433f5c4eb23d9d5f644",
+      "url": "https://nypost.com/tag/crime/feed/",
+      "name": "nypost",
+      "providerLink": "https://nypost.com/tag/crime/",
+      "__v": 0
+    },
+    {
+      "type": ["education"],
+      "_id": "5ed36433f5c4eb23d9d5f644",
+      "url": "https://feeds.feedburner.com/EducationWeekNewsAndInformationAboutEducationIssues",
+      "name": "edweek",
+      "providerLink": "https://www.edweek.org/ew/index.html",
+      "__v": 0
+    },
+    {
+      "type": ["education"],
+      "_id": "5ed36433f5c4eb23d9d5f644",
+      "url": "https://www.edsurge.com/articles_rss",
+      "name": "edsurge",
+      "providerLink": "https://www.edweek.org/ew/index.htm",
+      "__v": 0
+    }
+  ]
+}
+
