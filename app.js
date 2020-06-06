@@ -48,13 +48,13 @@ app.use("/resources", resourcesRouter);
 });*/
 
 //serve static assets if production
-if (app.get("env") === "production") {
+//if (app.get("env") === "production") {
   app.use(express.static(path.join(__dirname, "./react/build")));
 
   app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "./react/build/index.html"));
   });
-}
+//}
 
 // error handler
 app.use(function (err, req, res, next) {
