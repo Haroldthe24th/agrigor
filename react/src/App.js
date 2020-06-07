@@ -130,7 +130,7 @@ class App extends React.Component {
       }
     });
 
-    await fetch("https://limitless-temple-43961.herokuapp.com/getResources/mixed", {
+    await fetch("https://limitless-temple-43961.herokuapp.com/resources/getResources/mixed", {
       method: "POST",
       headers: {
         Accept: "application/json",
