@@ -130,7 +130,7 @@ class App extends React.Component {
       }
     });
 
-    await fetch("http://localhost:5000/resources/getResources/mixed", {
+    await fetch("https://limitless-temple-43961.herokuapp.com/getResources/mixed", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -157,7 +157,7 @@ class App extends React.Component {
       return;
     }
     //
-    const url = "http://localhost:5000/resources/getResources/" + section;
+    const url = "https://limitless-temple-43961.herokuapp.com/resources/getResources/" + section;
 
     let req = new Request(url);
     await fetch(req).then((response) => {
