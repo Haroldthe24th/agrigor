@@ -52,7 +52,6 @@ function Navbar({ section, sectionCb, modalCallback, navbarItems }) {
                 button
                 style={{
                   padding: "1rem",
-                  paddingLeft: ".5rem",
                   background: section == item.title ? "#ff7417" : "",
                   fontSize: ".8rem"
                 }}
@@ -71,14 +70,12 @@ function Navbar({ section, sectionCb, modalCallback, navbarItems }) {
             onClick={() => modalCallback()}
           >
             <ListItemIcon>
-              <Tooltip title="movies" placement="right-start" arrow>
                 <AddIcon
                   style={{
                     color: section == "movies" ? "#fff" : "rgb(96, 102, 113)",
                   }}
                   fontSize="large"
                 />
-              </Tooltip>
             </ListItemIcon>
           </ListItem>
         </List>
