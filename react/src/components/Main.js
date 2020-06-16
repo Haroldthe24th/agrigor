@@ -47,15 +47,7 @@ function Main({ articleArray, searchCallback, userHasFeed }) {
 
   return (
     <div
-      style={{
-        flex: 1,
-        display: "flex",
-        flexDirection: "row",
-        flexWrap: "wrap",
-        background: "#2a2e35", //"#F0F0F0",
-        paddingLeft: "4rem",
-        paddingRight: "2rem",
-      }}
+      className="main-content"
     >
       <ScrollButton />
       {/*  <SearchBar searchCallback={searchCallback} />*/}

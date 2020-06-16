@@ -130,7 +130,7 @@ class App extends React.Component {
       }
     });
 
-    await fetch("https://limitless-temple-43961.herokuapp.com/resources/getResources/mixed", {
+    await fetch("http://localhost:5000/resources/getResources/mixed", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -157,7 +157,7 @@ class App extends React.Component {
       return;
     }
     //
-    const url = "https://limitless-temple-43961.herokuapp.com/resources/getResources/" + section;
+    const url = "http://localhost:5000/resources/getResources/" + section;
 
     let req = new Request(url);
     await fetch(req).then((response) => {
@@ -207,7 +207,7 @@ class App extends React.Component {
       userHasFeed,
     } = this.state;
     return (
-      <div style={{ display: "flex" }}>
+      <div className="main-container">
         <Navbar
           navbarItems={navbarItems.filter(
             (item, index) => item.inNavbar == true

@@ -19,9 +19,7 @@ import AddIcon from "@material-ui/icons/Add";
 
 function Navbar({ section, sectionCb, modalCallback, navbarItems }) {
   return (
-    <div style={{ flex: " 0 0 80px" }}>
-      <div className="sidebar">
-        <List disablePadding dense>
+        <List disablePadding dense className="navbar-list">
           <ListItem
             button
             style={{
@@ -53,7 +51,7 @@ function Navbar({ section, sectionCb, modalCallback, navbarItems }) {
                 style={{
                   padding: "1rem",
                   background: section == item.title ? "#ff7417" : "",
-                  fontSize: ".8rem"
+                  fontSize: ".8rem",
                 }}
                 onClick={() => sectionCb(item.title)}
               >
@@ -70,17 +68,15 @@ function Navbar({ section, sectionCb, modalCallback, navbarItems }) {
             onClick={() => modalCallback()}
           >
             <ListItemIcon>
-                <AddIcon
-                  style={{
-                    color: section == "movies" ? "#fff" : "rgb(96, 102, 113)",
-                  }}
-                  fontSize="large"
-                />
+              <AddIcon
+                style={{
+                  color: section == "movies" ? "#fff" : "rgb(96, 102, 113)",
+                }}
+                fontSize="large"
+              />
             </ListItemIcon>
           </ListItem>
         </List>
-      </div>
-    </div>
   );
 }
 

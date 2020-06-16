@@ -25,24 +25,14 @@ hr {
 }
 .save-btn {
   color: #fff;
-   float: right; 
-   margin-right: 1.2rem;
-   padding: 1rem;
+  float: right;
+  margin-right: 1.2rem;
+  padding: 1rem;
 }
-.save-btn:hover  {
+.save-btn:hover {
   cursor: pointer;
 }
 .sidebar {
-  /* max-width: 240px;*/
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  position: fixed;
-  background-color: #212329;
-  width: 4.5rem;
-  height: 100vh;
-  color: white;
-  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
-
-  /* transition: width 600ms ease;*/
 }
 .sidebar-icon {
   color: #fff;
@@ -99,16 +89,16 @@ hr {
 .card-categories {
   display: flex;
   flex-direction: row;
-  padding: .5rem;
+  padding: 0.5rem;
 }
 .card-category {
   letter-spacing: 0.5px;
   font-size: 14px;
-  color:#c1c1c1;
+  color: #c1c1c1;
   border-radius: 20rem;
   padding: 0.3rem;
-  margin-right: .4rem;;
-  background-color:rgb(81, 84, 90);
+  margin-right: 0.4rem;
+  background-color: rgb(81, 84, 90);
 }
 
 .page-error-msg {
@@ -117,14 +107,13 @@ hr {
   height: 100vh;
 }
 .card-animate {
- /* transform: translateY(300px);
+  /* transform: translateY(300px);
   animation: fallPerspective 0.5s ease-in-out forwards;*/
   visibility: visible;
   opacity: 1;
 }
 
 @keyframes fallPerspective {
-  
   100% {
     transform: translateY(0px);
     opacity: 1;
@@ -211,7 +200,7 @@ input[type="search"]::-webkit-search-cancel-button {
   /*height: 22rem;*/
   background: #212329;
   border: 1px solid #404040;
-  border-radius: .1rem;
+  border-radius: 0.1rem;
 }
 .landing-card-holder {
   margin: auto;
@@ -235,6 +224,7 @@ input[type="search"]::-webkit-search-cancel-button {
   backface-visibility: hidden;
   border-radius: 0.1rem;
   border: 1px solid #404040;
+  text-align: center;
 }
 .landing-card:hover {
   /*transform: scale(1.05);
@@ -243,7 +233,7 @@ input[type="search"]::-webkit-search-cancel-button {
   background: #e68443;
   color: white;
 }
-.save-btn-holder{
+.save-btn-holder {
   height: 3.5rem;
 }
 .modal {
@@ -320,4 +310,40 @@ input[type="search"]::-webkit-search-cancel-button {
   height: 50px;
   width: 65px;
   background: #800;
+}
+.main-container {
+  display: flex;
+  flex-direction: row;
+}
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background: #2a2e35;
+  padding-left: 6rem;
+}
+.navbar-list {
+  /* max-width: 240px;*/
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  position: fixed !important;
+  background-color: #212329;
+  width: 4.5rem;
+  color: white;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
+
+  /* transition: width 600ms ease;*/
+}
+.navbar-list {
+  /*display: flex;*/
+}
+@media only screen and (max-width: 480px) {
+  .landing-card-section {
+    width: 99vw;
+  }
+}
+@media only screen and (max-device-width: 1024px) {
+  .landing-card-section {
+    width: 99vw;
+  }
 }
